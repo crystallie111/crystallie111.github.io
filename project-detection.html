@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detection Lifecycle & Analyst Training // YRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page" id="main"><section class="section project-hero"><div class="container"><a href="index.html#projects" class="case-back">← Selected work</a><div class="section-heading reveal"><p class="section-kicker">CASE STUDY [04] // DETECTION ENGINEERING</p><h1 class="project-page-title">Detection Lifecycle<br>& Analyst Training</h1><p class="case-lead">I own the detection rule lifecycle: defining how a rule will be validated, writing its logic, testing it, and maintaining and tuning it. For selected validations, I also conduct red-team simulations to exercise the behavior the rule is intended to detect.</p></div><div class="project-meta"><div class="meta-box"><span class="meta-label">Ownership</span><span class="meta-value">End-to-end rule lifecycle</span></div><div class="meta-box"><span class="meta-label">Platform</span><span class="meta-value">Elastic</span></div><div class="meta-box"><span class="meta-label">Team contribution</span><span class="meta-value">New-analyst training</span></div><div class="meta-box"><span class="meta-label">Developing area</span><span class="meta-value">Kubernetes security</span></div></div><div class="project-page-grid case-overview"><article class="panel reveal"><p class="section-kicker">CONTRIBUTION</p><h2>What I owned</h2><p>I connect rule authoring with validation: plan the test approach, write the detection, run tests, review what the rule detects, and use the findings to refine it. I also help analysts understand the resulting detection content.</p></article><aside class="panel reveal"><h2>Technical scope</h2><div class="tool-tags"><span>ES|QL</span><span>EQL</span><span>KQL</span><span>Sigma</span><span>MITRE ATT&CK</span><span>Rule validation</span><span>Red-team simulation</span><span>Rule tuning</span><span>Analyst training</span></div></aside></div><div class="project-content-grid"><article class="panel reveal"><span class="project-index">01</span><h2>Rule creation</h2><p>Built detection content using ES|QL, EQL, and KQL, including behavior-based and indicator-based use cases and Sigma translation work. The detection objective determines which logic and data are appropriate.</p></article><article class="panel reveal"><span class="project-index">02</span><h2>Validation & testing</h2><p>I plan how to validate the detection and test the rule against the intended behavior. When appropriate, I perform red-team simulations as part of that validation and use the results to refine the rule.</p></article><article class="panel reveal"><span class="project-index">03</span><h2>Maintenance & tuning</h2><p>Maintained and tuned multiple rules as part of ongoing SOC work. This is a continuing responsibility: review rule behavior, understand benign matches, and consider the coverage implications of changes.</p></article><article class="panel reveal"><span class="project-index">04</span><h2>Training & developing scope</h2><p>Trained new employees and developed material explaining detection logic, query languages, and tuning. I have also worked on Kubernetes security and rules, an area where my experience is still developing.</p></article></div><section class="panel reveal deliverables"><p class="section-kicker">DELIVERABLES</p><h2>What the work produced</h2><ul><li>Detection logic and rule-specific validation approaches</li><li>Rule testing, including red-team simulations for selected validations</li><li>Ongoing maintenance and tuning</li><li>Analyst training and supporting material</li><li>Contributions to Kubernetes security rules</li></ul></section></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Case study [04] — Detection Lifecycle & Analyst Training</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

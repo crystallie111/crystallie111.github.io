@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenCTI & Intelligence Operations // YRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page" id="main"><section class="section project-hero"><div class="container"><a href="index.html#projects" class="case-back">← Selected work</a><div class="section-heading reveal"><p class="section-kicker">CASE STUDY [01] // THREAT INTELLIGENCE</p><h1 class="project-page-title">OpenCTI &<br>Intelligence Operations</h1><p class="case-lead">I built OpenCTI from scratch and implemented it in our environment, supported by CTI methodology, implementation documentation and training material.</p></div><div class="project-meta"><div class="meta-box"><span class="meta-label">Contribution</span><span class="meta-value">Built from scratch</span></div><div class="meta-box"><span class="meta-label">Platform</span><span class="meta-value">OpenCTI</span></div><div class="meta-box"><span class="meta-label">Audience</span><span class="meta-value">SOC</span></div><div class="meta-box"><span class="meta-label">Deliverables</span><span class="meta-value">PDFs & presentations</span></div></div><div class="project-page-grid case-overview"><article class="panel reveal"><p class="section-kicker">CONTRIBUTION</p><h2>What I owned</h2><p>The contribution combines platform setup with written guidance: giving intelligence work an operational home and explaining how it connects to the SOC’s investigations and detections.</p></article><aside class="panel reveal"><h2>Technical scope</h2><div class="tool-tags"><span>OpenCTI</span><span>CTI lifecycle</span><span>MITRE ATT&CK</span><span>STIX / TAXII</span><span>TLP</span><span>Analytic tradecraft</span></div></aside></div><div class="project-content-grid"><article class="panel reveal"><span class="project-index">01</span><h2>Platform ownership</h2><p>Built the SOC’s OpenCTI environment from scratch. The documents below cover the intelligence methodology and training material that supported this work.</p></article><article class="panel reveal"><span class="project-index">02</span><h2>Methodology & analysis</h2><p>Authored CTI material covering the intelligence lifecycle, analytical methods, prioritization, and the relationship between intelligence, hunting, and detection engineering.</p></article><article class="panel reveal"><span class="project-index">03</span><h2>Communication & adoption</h2><p>Created CTI presentations and practical documentation covering the concepts and operating approach needed to adopt the platform.</p></article></div><section class="panel reveal deliverables"><p class="section-kicker">DELIVERABLES</p><h2>What the work produced</h2><ul><li>OpenCTI setup for the SOC</li><li>CTI framework and operational documentation</li><li>PowerPoint presentations and PDF material</li></ul></section><section class="evidence-section" id="evidence"><p class="section-kicker">SELECTED EVIDENCE</p><h2>Read the work.</h2><p class="evidence-intro">Training and implementation material supporting the OpenCTI rollout. The implementation guide records an existing Docker deployment and outlines the discovery, governance, integration and validation work needed to develop the CTI capability.</p><div class="evidence-grid"><article class="evidence-card"><p class="section-kicker">DOCUMENTATION</p><h3>CTI methodology</h3><p>Intelligence requirements, analytical methods, prioritization and the connection between intelligence and detection.</p><a class="evidence-link" aria-label="Read CTI methodology PDF" href="evidence/cti-methodology-public.pdf">Read PDF <span aria-hidden="true">↗</span></a><span class="evidence-meta">30 pages · 7.0 MB · Public edition</span></article><article class="evidence-card"><p class="section-kicker">ORIGINAL POWERPOINT</p><h3>CTI training presentation</h3><p>Training material introducing OpenCTI, the CTI lifecycle and the operational approach behind the intelligence program.</p><a class="evidence-link" href="evidence/CTI.pptx" download>Download PowerPoint ↗</a><span class="evidence-meta">PPTX · 1.9 MB · Original file</span></article><article class="evidence-card"><p class="section-kicker">IMPLEMENTATION GUIDE</p><h3>OpenCTI implementation</h3><p>Documents the Docker deployment baseline and the approach to architecture, intelligence workflows, access controls, Elastic integration and acceptance testing.</p><a class="evidence-link" href="evidence/opencti-implementation.pdf">Read implementation PDF ↗</a><span class="evidence-meta">PDF · 48 pages</span></article></div><p class="evidence-footnote">The PowerPoint is the original supplied file. The implementation guide retains its original content with the internal work-item identifier removed. The methodology PDF is the previously prepared public reading copy.</p></section></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Case study [01] — OpenCTI & Intelligence Operations</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

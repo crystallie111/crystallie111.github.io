@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOC Workflow Automation // YRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page" id="main"><section class="section project-hero"><div class="container"><a href="index.html#projects" class="case-back">← Selected work</a><div class="section-heading reveal"><p class="section-kicker">CASE STUDY [05] // SECURITY AUTOMATION</p><h1 class="project-page-title">SOC Workflow<br>Automation</h1><p class="case-lead">Designed and documented a Shuffler automation workflow that prepares malware notification drafts from Jira case data for analyst review.</p></div><div class="project-meta"><div class="meta-box"><span class="meta-label">Contribution</span><span class="meta-value">Workflow design</span></div><div class="meta-box"><span class="meta-label">Platform</span><span class="meta-value">Shuffler</span></div><div class="meta-box"><span class="meta-label">Output</span><span class="meta-value">Notification draft</span></div><div class="meta-box"><span class="meta-label">Release step</span><span class="meta-value">Analyst review</span></div></div><div class="project-page-grid case-overview"><article class="panel reveal"><p class="section-kicker">CONTRIBUTION</p><h2>What I owned</h2><p>The workflow addresses repetitive case communication while retaining a human review step before a notification is sent.</p></article><aside class="panel reveal"><h2>Technical scope</h2><div class="tool-tags"><span>Shuffler.io</span><span>Jira</span><span>Elastic / Bitdefender</span><span>Google Drive</span><span>Gmail OAuth</span><span>Jinja2</span></div></aside></div><div class="project-content-grid"><article class="panel reveal"><span class="project-index">01</span><h2>Workflow design</h2><p>The documented flow starts with a malware case in Jira, extracts the fields needed for the notification, applies a template, and prepares a draft for review.</p></article><article class="panel reveal"><span class="project-index">02</span><h2>Integration & documentation</h2><p>The design connects case data, templates, and the analyst’s email workflow. Supporting documentation explains the architecture, field mapping, and an example use case.</p></article><article class="panel reveal"><span class="project-index">03</span><h2>Human review</h2><p>The intended output is a draft rather than an automatically sent message. An analyst checks the content and context before deciding to send it.</p></article></div><section class="workflow-evidence" aria-labelledby="workflow-heading"><p class="section-kicker">WORKFLOW DIAGRAM</p><h2 id="workflow-heading">From ticket to reviewed notification</h2><figure><a href="assets/shuffler-workflow.png" target="_blank" rel="noopener" aria-label="View Shuffler workflow diagram full size in a new tab"><img src="assets/shuffler-workflow.png" width="1196" height="486" loading="lazy" alt="Workflow from a new Jira ticket through ticket retrieval, rule checks, Google Drive template retrieval, field mapping and draft generation. Draft creation is logged in Jira and sent to the analyst mailbox for human review before email is sent."></a><figcaption>The diagram shows rule checks before draft creation, with an analyst reviewing the notification before sending. <a href="assets/shuffler-workflow.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure><p class="workflow-summary">The illustrated condition selects high or critical severity tickets with a malware-detected event action. Matching tickets are mapped to a Google Drive template; the resulting draft is logged in Jira and delivered to the analyst’s mailbox.</p></section><section class="panel reveal deliverables"><p class="section-kicker">DELIVERABLES</p><h2>What the work produced</h2><ul><li>A documented SOAR workflow design</li><li>Technical implementation manual</li><li>Example use case and field mapping</li></ul></section></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Case study [05] — SOC Workflow Automation</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

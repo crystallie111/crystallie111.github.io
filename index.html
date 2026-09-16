@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Argyro Ouzounoglou // Threat Hunter & Detection Engineer</title>
+  <meta name="description" content="Cybersecurity portfolio — Threat Hunting, Detection Engineering, CTI, SIEM. Argyro Ouzounoglou." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#hero" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span>
+      </button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero section">
+      <div class="container hero-content">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">THREAT HUNTER // DETECTION ENGINEER // CTI</p>
+          <h1 class="hero-name">YRO</h1>
+          <p class="hero-fullname">Argyro Ouzounoglou</p>
+          <h2 class="hero-title">Threat Hunter &amp;<br>Detection Engineer</h2>
+          <p class="hero-description">I investigate adversary behavior, build and maintain detections, and develop the dashboards and intelligence workflows a SOC uses every day.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            
+          </div>
+          <a href="experience.html" class="cinematic-btn" aria-label="Enter cinematic experience">
+            <span class="cinematic-btn-bg"></span>
+            <span class="cinematic-btn-glow"></span>
+            <span class="cinematic-btn-inner">
+              <span class="cinematic-btn-icon">◈</span>
+              <span class="cinematic-btn-text">CINEMATIC MODE</span>
+              <span class="cinematic-btn-arrow">→</span>
+            </span>
+          </a>
+        </div>
+      <aside class="scope-panel editorial-summary"><p class="section-kicker">MY WORK</p><h2>Investigate.<br>Build. Refine.</h2><p>Threat investigations, detection engineering and the systems that support security operations.</p><p class="summary-note">Selected work below includes investigation reports and CTI training material.</p></aside></div>
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">01 // PROJECTS</p>
+          <h2>Selected Security Work</h2><p class="section-intro">Investigations, engineering, and operational delivery. Explore the scope of my contribution in each case study.</p>
+        </div>
+        <div class="cards-grid">
+
+          <a href="project-cti.html" class="project-card reveal" aria-label="OpenCTI & Intelligence Operations">
+            <div class="project-top">
+              <span class="project-index">[01]</span>
+              <span class="project-status live">CASE STUDY</span>
+            </div>
+            <h3>OpenCTI & Intelligence Operations</h3>
+            <p>Built and implemented OpenCTI in our environment, supported by CTI documentation and training material. Includes the original presentation and implementation guide.</p>
+            <div class="tech-stack">
+              <span>CTI Methodology</span>
+              <span>MITRE ATT&CK</span>
+              <span>STIX/TAXII</span>
+              <span>SATs</span>
+            </div>
+            <div class="project-links">
+              <span class="link-arrow">Open Case Study →</span>
+            </div>
+          </a>
+
+          <a href="project-elk.html" class="project-card reveal" aria-label="SOC & Client Dashboards">
+            <div class="project-top">
+              <span class="project-index">[02]</span>
+              <span class="project-status live">CASE STUDY</span>
+            </div>
+            <h3>SOC & Client Dashboards</h3>
+            <p>Created multiple Elastic dashboards for the SOC and clients, worked with Grafana dashboards, and troubleshot Elastic machine-learning and platform issues.</p>
+            <div class="tech-stack">
+              <span>Elastic / Kibana</span>
+              <span>KQL</span>
+              <span>EQL</span>
+              <span>ESQL</span>
+            </div>
+            <div class="project-links">
+              <span class="link-arrow">Open Case Study →</span>
+            </div>
+          </a>
+
+          <a href="project-hunting.html" class="project-card reveal" aria-label="Threat Hunting & Investigation">
+            <div class="project-top">
+              <span class="project-index">[03]</span>
+              <span class="project-status live">CASE STUDY</span>
+            </div>
+            <h3>Threat Hunting & Investigation</h3>
+            <p>Turned actionable hunt findings into detection rules, following a workflow from hypothesis and investigation through validation, deployment and tuning.</p>
+            <div class="tech-stack">
+              <span>Threat Hunting</span>
+              <span>Elastic SIEM</span>
+              <span>SIGMA → ESQL</span>
+              <span>Jira</span>
+            </div>
+            <div class="project-links">
+              <span class="link-arrow">Open Case Study →</span>
+            </div>
+          </a>
+
+          <a href="project-detection.html" class="project-card reveal" aria-label="Detection Engineering">
+            <div class="project-top">
+              <span class="project-index">[04]</span>
+              <span class="project-status live">CASE STUDY</span>
+            </div>
+            <h3>Detection Lifecycle & Analyst Training</h3>
+            <p>Own the rule lifecycle: writing detection logic, planning validation, testing with red-team simulations where appropriate, tuning and ongoing maintenance.</p>
+            <div class="tech-stack">
+              <span>SIGMA</span>
+              <span>ESQL</span>
+              <span>EQL</span>
+              <span>KQL</span>
+              <span>ATT&CK</span>
+            </div>
+            <div class="project-links">
+              <span class="link-arrow">Open Case Study →</span>
+            </div>
+          </a>
+
+          <a href="project-shuffler.html" class="project-card reveal card-wide" aria-label="Shuffler Automation">
+            <div class="project-top">
+              <span class="project-index">[05]</span>
+              <span class="project-status live">CASE STUDY</span>
+            </div>
+            <h3>SOC Workflow Automation</h3>
+            <p>Designed a Shuffler workflow for preparing malware notification drafts from case data, with analyst review before sending and a documented implementation approach.</p>
+            <div class="tech-stack">
+              <span>Shuffler.io</span>
+              <span>SOAR</span>
+              <span>Jira API</span>
+              <span>Gmail OAuth</span>
+              <span>Analyst review</span>
+            </div>
+            <div class="project-links">
+              <span class="link-arrow">Open Case Study →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">02 // ABOUT</p>
+          <h2>Background &amp; toolkit</h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel reveal"><p>I work across the investigation and engineering sides of a SOC: examining suspicious behavior, maintaining detection content and supporting the platforms analysts rely on.</p><p>Alongside technical delivery, I document findings and train new analysts. The reports in Selected Work show how I structure investigations and communicate their limitations.</p><p>I use AI in my work and design prompts to guide it toward the task. I validate its outputs before relying on them.</p><div class="learning-direction"><h3>Where I want to go next</h3><p>I want to deepen my knowledge of AI, machine learning and large language models, and explore quantum computing.</p></div></article>
+          <aside class="panel reveal" id="skills"><h3>Tools I work with</h3><dl class="stack-list"><dt>Detection &amp; analysis</dt><dd>Elastic / Kibana · KQL · EQL · ES|QL · Sigma</dd><dt>Platforms &amp; workflows</dt><dd>Grafana · OpenCTI · Shuffler · Jira</dd><dt>Investigation context</dt><dd>MITRE ATT&amp;CK · endpoint telemetry · Linux</dd></dl><p class="developing-note">Developing experience in Kubernetes security and detection rules.</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">03 // EXPERIENCE</p>
+          <h2>Experience &amp; certifications</h2>
+        </div>
+        <div class="timeline">
+<article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content panel">
+              <span class="timeline-date">May 2026</span>
+              <h3>eCTHP v3 Certification</h3>
+              <p class="timeline-company">eLearnSecurity</p>
+              <p>Earned the Certified Threat Hunting Professional certification.</p>
+              <div class="timeline-tags">
+                <span>eCTHP v3</span>
+                <span>Threat Hunting</span>
+                <span>ATT&CK</span>
+              </div>
+            </div>
+          </article>
+<article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content panel">
+              <span class="timeline-date">February 2026 — Present</span>
+              <h3>Threat Hunter & Detection Engineer</h3>
+              <p class="timeline-company">Cygnus Security Operations</p>
+              <p>
+                Responsible for threat investigations and the full detection rule lifecycle, including rule writing, validation planning, red-team simulations for selected tests, tuning and maintenance. Also build SOC and client dashboards and implemented OpenCTI. Also troubleshoot Elastic platform issues and train new analysts.
+              </p>
+              <div class="timeline-tags">
+                <span>Threat Hunting</span>
+                <span>Detection Engineering</span>
+                <span>CTI</span>
+                <span>Elastic SIEM</span>
+                <span>Training</span>
+              </div>
+            </div>
+          </article>
+<article class="timeline-item reveal"><div class="timeline-marker"></div><div class="timeline-content panel"><span class="timeline-date">November 2025</span><h3>CompTIA Security+</h3><p class="timeline-company">CompTIA · Certification</p><p>Earned the CompTIA Security+ certification.</p></div></article>
+<article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content panel">
+              <span class="timeline-date">September 2025 — February 2026</span>
+              <h3>SOC Analyst L1</h3>
+              <p class="timeline-company">Cygnus Security Operations</p>
+              <p>
+                Alert triage, incident investigation, client communication, and escalation
+                across endpoint, network, and cloud environments.
+              </p>
+              <div class="timeline-tags">
+                <span>Alert Triage</span>
+                <span>Incident Response</span>
+                <span>EDR</span>
+                <span>Client Comms</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">04 // CONTACT</p>
+          <h2>Let’s talk security.</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="panel reveal">
+            <p>
+              Available for threat hunting roles, detection engineering positions,
+              CTI analyst opportunities, and security engineering work.
+              Interested in teams solving demanding detection, investigation and security-platform problems.
+            </p>
+            <div class="contact-links"><a href="mailto:yro.makri@gmail.com">yro.makri@gmail.com</a><a href="tel:+306985690023">+30 698 569 0023</a></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Threat Hunter · Detection Engineer · CTI Analyst</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

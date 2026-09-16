@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threat Hunting & Investigation // YRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page" id="main"><section class="section project-hero"><div class="container"><a href="index.html#projects" class="case-back">← Selected work</a><div class="section-heading reveal"><p class="section-kicker">CASE STUDY [03] // THREAT HUNTING</p><h1 class="project-page-title">Threat Hunting<br>& Investigation</h1><p class="case-lead">I conduct hypothesis-led investigations and turn actionable findings into detection rules. My workflow connects the hunt hypothesis and analysis to detection logic, validation, deployment and tuning, with findings documented in investigation reports.</p></div><div class="project-meta"><div class="meta-box"><span class="meta-label">Contribution</span><span class="meta-value">Case investigations</span></div><div class="meta-box"><span class="meta-label">Method</span><span class="meta-value">Hypothesis-led hunting</span></div><div class="meta-box"><span class="meta-label">Platform</span><span class="meta-value">Elastic</span></div><div class="meta-box"><span class="meta-label">Output</span><span class="meta-value">Reports & detections</span></div></div><div class="project-page-grid case-overview"><article class="panel reveal"><p class="section-kicker">CONTRIBUTION</p><h2>What I owned</h2><p>I connect hands-on investigation with detection development: forming hypotheses, examining telemetry, documenting conclusions and carrying actionable findings into rule development and validation.</p></article><aside class="panel reveal"><h2>Technical scope</h2><div class="tool-tags"><span>Hypothesis development</span><span>Log analysis</span><span>Elastic SIEM</span><span>MITRE ATT&CK</span><span>CTI</span><span>Investigation reporting</span></div></aside></div><div class="project-content-grid"><article class="panel reveal"><span class="project-index">01</span><h2>Investigative work</h2><p>Examined threat-hunting cases and recorded the analysis in written reports. The emphasis is on understanding the behavior in the available data and communicating what the evidence supports.</p></article><article class="panel reveal"><span class="project-index">02</span><h2>Repeatable methodology</h2><p>Developed a framework covering hypothesis-driven, intelligence-driven, and data-driven hunts. It connects the question being investigated to data collection, analysis, and follow-up work.</p></article><article class="panel reveal"><span class="project-index">03</span><h2>From hunt to detection</h2><p>I have translated hunt findings into detection rules. My working process follows hypothesis → investigation → detection logic → validation → deployment and tuning. Findings can also lead to logging improvements or baseline updates when a new rule is not warranted.</p></article></div><section class="panel reveal deliverables"><p class="section-kicker">DELIVERABLES</p><h2>What the work produced</h2><ul><li>Threat-hunting case analysis</li><li>PDF investigation reports</li><li>A documented operational hunting framework</li><li>Detection rules developed from actionable hunt findings</li></ul></section><section class="evidence-section" id="evidence"><p class="section-kicker">SELECTED EVIDENCE</p><h2>Read the work.</h2><p class="evidence-intro">These reading copies preserve the investigation narrative with identifiers removed. Findings are limited to the evidence and telemetry described in each report.</p><div class="evidence-grid"><article class="evidence-card"><p class="section-kicker">INVESTIGATION / MARCH 2026</p><h3>Linux cron persistence</h3><p>Hypothesis-led review of scheduled-task behavior. No malicious persistence identified in the observed telemetry; one namespace had a cron visibility gap.</p><a class="evidence-link" aria-label="Read Linux cron persistence PDF" href="evidence/linux-cron-hunt-public.pdf">Read PDF <span aria-hidden="true">↗</span></a><span class="evidence-meta">36 pages · 5.2 MB · Public edition</span></article><article class="evidence-card"><p class="section-kicker">INVESTIGATION / 8 MARCH 2026</p><h3>Web reconnaissance patterns</h3><p>Traces probing activity and subsequent exploit attempts through Elastic telemetry. Correlation is documented; successful compromise is not established.</p><a class="evidence-link" aria-label="Read Web reconnaissance patterns PDF" href="evidence/web-reconnaissance-hunt-public.pdf">Read PDF <span aria-hidden="true">↗</span></a><span class="evidence-meta">13 pages · 1.9 MB · Public edition</span></article><article class="evidence-card"><p class="section-kicker">METHODOLOGY</p><h3>The hunting workflow</h3><p>A repeatable approach to scope, hypotheses, evidence collection, analysis, reporting and follow-up detection work.</p><a class="evidence-link" aria-label="Read The hunting workflow PDF" href="evidence/threat-hunting-methodology-public.pdf">Read PDF <span aria-hidden="true">↗</span></a><span class="evidence-meta">14 pages · 2.5 MB · Public edition</span></article></div><p class="evidence-footnote">Each PDF includes an editorial context page. Source pages are flattened for redaction; this page provides a readable summary.</p></section></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Case study [03] — Threat Hunting & Investigation</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

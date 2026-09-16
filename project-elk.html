@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOC & Client Dashboards // YRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">YRO</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page" id="main"><section class="section project-hero"><div class="container"><a href="index.html#projects" class="case-back">← Selected work</a><div class="section-heading reveal"><p class="section-kicker">CASE STUDY [02] // SECURITY PLATFORMS</p><h1 class="project-page-title">SOC & Client<br>Dashboards</h1><p class="case-lead">I created multiple dashboards in Elastic for SOC analysts and clients, and worked with Grafana dashboards. Alongside dashboard development, I troubleshot Elastic machine-learning and other platform issues.</p></div><div class="project-meta"><div class="meta-box"><span class="meta-label">Contribution</span><span class="meta-value">Dashboard development</span></div><div class="meta-box"><span class="meta-label">Audience</span><span class="meta-value">SOC & clients</span></div><div class="meta-box"><span class="meta-label">Platforms</span><span class="meta-value">Elastic & Grafana</span></div><div class="meta-box"><span class="meta-label">Also covered</span><span class="meta-value">Platform troubleshooting</span></div></div><div class="project-page-grid case-overview"><article class="panel reveal"><p class="section-kicker">CONTRIBUTION</p><h2>What I owned</h2><p>This work spans both the analyst view of security data and the practical work of keeping the underlying platform useful for investigations.</p></article><aside class="panel reveal"><h2>Technical scope</h2><div class="tool-tags"><span>Elastic / Kibana</span><span>Grafana</span><span>KQL</span><span>ES|QL</span><span>EQL</span><span>Elastic ML troubleshooting</span></div></aside></div><div class="project-content-grid"><article class="panel reveal"><span class="project-index">01</span><h2>Dashboard development</h2><p>Built dashboards for different audiences rather than treating every view as a general overview. The SOC work covers security events and investigation context; client dashboards address the needs of their environments.</p></article><article class="panel reveal"><span class="project-index">02</span><h2>Security visibility</h2><p>The existing SOC dashboard work brings together Windows authentication, identity and cloud events, endpoint security, firewall, and WAF activity. Query-driven panels support navigation from an overview into investigation detail.</p></article><article class="panel reveal"><span class="project-index">03</span><h2>Operational troubleshooting</h2><p>Investigated Elastic machine-learning issues and other platform problems alongside dashboard work. This experience adds operational depth beyond creating visualizations.</p></article></div><section class="panel reveal deliverables"><p class="section-kicker">DELIVERABLES</p><h2>What the work produced</h2><ul><li>Multiple Elastic dashboards for SOC and client use</li><li>Grafana dashboard work</li><li>An analyst usage playbook for the SOC dashboard</li></ul></section></div></section></main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Argyro Ouzounoglou // YRO</p>
+      <p>Case study [02] — SOC & Client Dashboards</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
