@@ -142,8 +142,7 @@ const terminalCommands = {
   ],
   contact: [
     "OPEN CHANNEL:",
-    "Email: yro.makri@gmail.com",
-    "Phone: +30 698 569 0023"
+    "Email: yro.makri@gmail.com"
   ]
 };
 
