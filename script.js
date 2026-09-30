@@ -198,14 +198,39 @@ if(canvas&&ctx){
  function sync(){cancelAnimationFrame(frame);frame=0;draw();start()}
  addEventListener('resize',resize);document.addEventListener('visibilitychange',sync);prefersReducedMotion.addEventListener('change',sync);resize();start();
 }
-// A deliberate transition into the optional cinematic experience.
-let cinematicLeaving=false;
-document.querySelectorAll('a[href="experience.html"]').forEach(link=>link.addEventListener('click',event=>{
- if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
- if(prefersReducedMotion.matches)return;
- event.preventDefault();if(cinematicLeaving)return;cinematicLeaving=true;
- const curtain=document.createElement('div');curtain.className='cinematic-curtain';curtain.setAttribute('aria-hidden','true');curtain.innerHTML='<div class="portal-ring"></div><span></span><p>ENTERING THE SIGNAL</p>';document.body.append(curtain);
- requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('cinematic-departure')));
- setTimeout(()=>location.assign(link.href),1200);
+// Clear the transition on departure and on return from the browser's page cache.
+let cinematicLeaving = false;
+let cinematicNavigationTimer = 0;
+let cinematicTransitionFrame = 0;
+
+function resetCinematicTransition() {
+  clearTimeout(cinematicNavigationTimer);
+  cancelAnimationFrame(cinematicTransitionFrame);
+  cinematicNavigationTimer = 0;
+  cinematicTransitionFrame = 0;
+  cinematicLeaving = false;
+  document.body.classList.remove('cinematic-departure');
+  document.querySelectorAll('.cinematic-curtain').forEach(curtain => curtain.remove());
+}
+
+document.querySelectorAll('a.cinematic-btn').forEach(link => link.addEventListener('click', event => {
+  if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  if (prefersReducedMotion.matches) return;
+  event.preventDefault();
+  if (cinematicLeaving) return;
+  cinematicLeaving = true;
+  const curtain = document.createElement('div');
+  curtain.className = 'cinematic-curtain';
+  curtain.setAttribute('aria-hidden', 'true');
+  curtain.innerHTML = '<div class="portal-ring"></div><span></span><p>ENTERING THE SIGNAL</p>';
+  document.body.append(curtain);
+  cinematicTransitionFrame = requestAnimationFrame(() => {
+    cinematicTransitionFrame = requestAnimationFrame(() => {
+      cinematicTransitionFrame = 0;
+      document.body.classList.add('cinematic-departure');
+    });
+  });
+  cinematicNavigationTimer = setTimeout(() => location.assign(link.href), 1200);
 }));
-window.addEventListener('pageshow',()=>{cinematicLeaving=false;document.body.classList.remove('cinematic-departure');document.querySelector('.cinematic-curtain')?.remove()});
+window.addEventListener('pagehide', resetCinematicTransition);
+window.addEventListener('pageshow', resetCinematicTransition);
