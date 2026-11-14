@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#060607">
+<title>YRO — Private portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; --ink: #f2f3f6; --muted: #9a9da6; --line: rgba(255,255,255,.14); --ease: cubic-bezier(.16,1,.3,1); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 28px; background: radial-gradient(ellipse at 50% 38%, #1b1c1f, #060607 68%); color: var(--ink); font-family: 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; position: fixed; inset: 12px; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; pointer-events: none; }
+  main { width: min(100%, 430px); text-align: center; animation: rise 1s var(--ease) both; }
+  .mark { margin: 0; font: 800 clamp(64px, 17vw, 104px)/.9 'Syne', sans-serif; letter-spacing: -.055em; background: linear-gradient(135deg, #fff 0%, #cfd3d8 16%, #7a7e86 32%, #fff 46%, #c9d6e2 60%, #f5f7fa 74%, #737780 88%, #fff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .label { display: inline-flex; align-items: center; gap: 12px; margin: 22px 0 0; font: 500 10.5px/1 'DM Mono', monospace; letter-spacing: .22em; text-transform: uppercase; color: #c6c9d0; }
+  .label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #e8eef7; box-shadow: 0 0 10px #e8eef7; }
+  .lede { margin: 18px auto 0; max-width: 34ch; font-size: 15px; line-height: 1.65; color: var(--muted); }
+  form { margin-top: 30px; padding: 8px; display: flex; gap: 8px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.045); backdrop-filter: blur(12px); transition: border-color .3s; }
+  form:focus-within { border-color: rgba(255,255,255,.45); }
+  form.bad { border-color: rgba(255,150,150,.7); animation: shake .4s; }
+  input { flex: 1; min-width: 0; padding: 0 16px; border: 0; outline: 0; background: none; color: var(--ink); font: 500 14px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+  input::placeholder { color: #6d7078; letter-spacing: .12em; }
+  button { flex: none; min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--ink); color: #08080a; font: 500 10.5px/1 'DM Mono', monospace; letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: transform .5s var(--ease), background .3s; }
+  button:hover { background: #fff; transform: translateY(-1px); }
+  button:disabled { opacity: .55; cursor: progress; transform: none; }
+  :focus-visible { outline: 2px solid #dfe6f0; outline-offset: 3px; }
+  .status { min-height: 20px; margin: 16px 0 0; font-size: 13px; color: var(--muted); }
+  .status.error { color: #ffb4b4; }
+  .ask { margin: 26px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.08); font-size: 13px; line-height: 1.7; color: var(--muted); }
+  .ask a { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  .files { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 22px 0 0; }
+  .files a { display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; color: var(--ink); text-decoration: none; font: 500 10.5px/1 'DM Mono', monospace; letter-spacing: .18em; text-transform: uppercase; }
+  .files a:first-child { background: var(--ink); border-color: var(--ink); color: #08080a; }
+  [hidden] { display: none !important; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+  @keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <h1 class="mark">YRO</h1>
+  <p class="label">Private portfolio</p>
+  <p class="lede">This portfolio is shared on request. Enter your access code to open it.</p>
+  <form id="gate" autocomplete="off" novalidate>
+    <input id="code" name="access-code" type="text" inputmode="text" autocapitalize="characters" autocorrect="off" spellcheck="false" placeholder="Access code" aria-label="Access code" required>
+    <button id="go" type="submit">Unlock</button>
+  </form>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+  <p class="ask">No code yet? Ask the person who shared this link with you.</p>
+</main>
+<script>
+(() => {
+  'use strict';
+  const SALT = '9YKbqoiN3qYAwKfvH6sbug==', ITERATIONS = 600000, SESSION_MS = 24 * 3600000;
+  const ROOT = '/', DB = 'yro-gate', STORE = 'session';
+  const form = document.getElementById('gate'), input = document.getElementById('code'), button = document.getElementById('go'), status = document.getElementById('status');
+  const say = (text, error) => { status.textContent = text; status.classList.toggle('error', Boolean(error)); };
+  // Must match normalise() in tools/build.mjs.
+  const normalise = (code) => code.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const text = (buffer) => new TextDecoder().decode(buffer);
+
+  if (!window.isSecureContext || !crypto.subtle) {
+    form.hidden = true;
+    say('This browser cannot open the portfolio. Please use a current browser.', true);
+    return;
+  }
+
+  // ── Remembering the key ────────────────────────────────────────────────
+  // Preferred: a non-extractable key in IndexedDB, which the service worker can use.
+  // Where that is refused (some phone and in-app browsers), the key stays in this tab only.
+  function store(mode) {
+    return new Promise((resolve, reject) => {
+      const open = indexedDB.open(DB, 1);
+      open.onupgradeneeded = () => open.result.createObjectStore(STORE);
+      open.onerror = () => reject(open.error);
+      open.onblocked = () => reject(new Error('blocked'));
+      open.onsuccess = () => resolve(open.result.transaction(STORE, mode).objectStore(STORE));
+    });
+  }
+  const request = (r) => new Promise((resolve, reject) => { r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
+  const importKey = (bits) => crypto.subtle.importKey('raw', bits, 'AES-GCM', false, ['decrypt']);
+  async function recall() {
+    try {
+      const saved = await request((await store('readonly')).get('current'));
+      if (saved && saved.exp > Date.now()) return { key: saved.key, shared: true };
+    } catch {}
+    try {
+      const kept = JSON.parse(sessionStorage.getItem('yro-key') || 'null');
+      if (kept && kept.exp > Date.now()) return { key: await importKey(Uint8Array.from(atob(kept.k), (c) => c.charCodeAt(0))), shared: false };
+    } catch {}
+    return null;
+  }
+  async function remember(key, bits) {
+    const exp = Date.now() + SESSION_MS;
+    try { await request((await store('readwrite')).put({ key, exp }, 'current')); return true; } catch {}
+    try { sessionStorage.setItem('yro-key', JSON.stringify({ k: btoa(String.fromCharCode(...new Uint8Array(bits))), exp })); } catch {}
+    return false;
+  }
+  async function forget() {
+    try { await request((await store('readwrite')).delete('current')); } catch {}
+    try { sessionStorage.removeItem('yro-key'); } catch {}
+  }
+
+  // ── Crypto ─────────────────────────────────────────────────────────────
+  async function derive(code) {
+    const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(normalise(code)), 'PBKDF2', false, ['deriveBits']);
+    const salt = Uint8Array.from(atob(SALT), (c) => c.charCodeAt(0));
+    const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations: ITERATIONS, hash: 'SHA-256' }, material, 256);
+    return { key: await importKey(bits), bits };
+  }
+  async function unseal(key, file) {
+    const response = await fetch(ROOT + file, { cache: 'no-cache' });
+    if (!response.ok) throw new Error('missing');
+    const data = await response.arrayBuffer();
+    return crypto.subtle.decrypt({ name: 'AES-GCM', iv: data.slice(0, 12) }, key, data.slice(12));
+  }
+  // A key is right if it opens the encrypted file list.
+  const fileList = async (key) => { try { return JSON.parse(text(await unseal(key, 'm.bin'))); } catch { return null; } };
+
+  // ── Opening the site ───────────────────────────────────────────────────
+  // Route 1: hand over to the service worker, which serves every page and file decrypted.
+  async function viaWorker() {
+    await navigator.serviceWorker.register(ROOT + 'sw.js', { scope: ROOT });
+    const registration = await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => setTimeout(() => reject(new Error('slow')), 6000))]);
+    registration.active?.postMessage('reset');
+    await new Promise((resolve) => setTimeout(resolve, 80));
+    location.replace(location.href);
+  }
+  // Route 2: no service worker. Decrypt the requested page here and write it into this tab.
+  // Every later link is a normal navigation that lands back on this file and repeats the step.
+  async function inPlace(key, manifest, anchor) {
+    const pathOf = (value) => {
+      try {
+        const url = new URL(value, location.href);
+        if (url.origin !== location.origin || !url.pathname.startsWith(ROOT)) return null;
+        let path = decodeURIComponent(url.pathname.slice(ROOT.length));
+        if (path === '' || path.endsWith('/')) path += 'index.html';
+        return manifest[path] ? path : null;
+      } catch { return null; }
+    };
+    const path = pathOf(location.pathname.endsWith('/404.html') ? ROOT : location.pathname);
+    if (!path) {
+      history.replaceState(null, '', ROOT);
+      say('That page is not part of the portfolio. Opening the homepage…');
+      setTimeout(() => location.replace(ROOT), 900);
+      return;
+    }
+    const entry = manifest[path];
+    const body = await unseal(key, 'd/' + entry.f);
+    if (!entry.t.startsWith('text/html')) {      // a document or image opened directly
+      const url = URL.createObjectURL(new Blob([body], { type: entry.t }));
+      const name = path.split('/').pop();
+      if (entry.t.startsWith('image/')) {
+        document.body.innerHTML = '';
+        const image = Object.assign(new Image(), { src: url, alt: name });
+        image.style.cssText = 'max-width:100%;height:auto;border-radius:12px';
+        document.body.append(image);
+        return;
+      }
+      // Phones will not always jump to a decrypted file on their own, so offer it as two plain buttons.
+      form.hidden = true;
+      document.querySelector('.lede').textContent = name;
+      document.querySelector('.ask').hidden = true;
+      say('Your document is ready.');
+      const actions = document.createElement('p');
+      actions.className = 'files';
+      for (const [label, download] of [['Open document', false], ['Download', true]]) {
+        const link = Object.assign(document.createElement('a'), { href: url, textContent: label });
+        if (download) link.download = name;
+        actions.append(link);
+      }
+      status.after(actions);
+      return;
+    }
+    const page = new DOMParser().parseFromString(text(body), 'text/html');
+    await Promise.all([...page.querySelectorAll('link[rel="stylesheet"][href], script[src], img[src]')].map(async (el) => {
+      const attribute = el.hasAttribute('href') ? 'href' : 'src';
+      const file = pathOf(el.getAttribute(attribute));
+      if (!file) return;
+      el.setAttribute(attribute, URL.createObjectURL(new Blob([await unseal(key, 'd/' + manifest[file].f)], { type: manifest[file].t })));
+    }));
+    document.open();
+    document.write('<!DOCTYPE html>' + page.documentElement.outerHTML);
+    document.close();
+    if (anchor) setTimeout(() => document.getElementById(anchor)?.scrollIntoView({ behavior: 'instant' }), 350);
+  }
+  async function proceed(key, manifest, shared, anchor) {
+    // The worker gets one attempt per visit. If this file is showing again right after
+    // handing over, the worker is not serving on this device, so open the page in place.
+    const [count, at] = (sessionStorage.getItem('yro-gate-tries') || '0,0').split(',').map(Number);
+    const tries = Date.now() - at < 8000 ? count : 0;
+    const workerAllowed = shared && 'serviceWorker' in navigator && !sessionStorage.getItem('yro-no-worker');
+    if (workerAllowed && tries < 1) {
+      sessionStorage.setItem('yro-gate-tries', `1,${Date.now()}`);
+      try { await viaWorker(); return; } catch {}
+    }
+    if (workerAllowed && tries >= 1) sessionStorage.setItem('yro-no-worker', '1');
+    await inPlace(key, manifest, anchor);
+  }
+
+  async function unlock(code, anchor) {
+    if (normalise(code).length < 4) { say('Enter the access code you were given.', true); return; }
+    button.disabled = true; form.classList.remove('bad'); say('Checking…');
+    try {
+      const { key, bits } = await derive(code);
+      const manifest = await fileList(key);
+      if (!manifest) {
+        button.disabled = false; form.classList.add('bad'); input.select();
+        say('That code did not work. Check it and try again.', true);
+        return;
+      }
+      const shared = await remember(key, bits);
+      sessionStorage.removeItem('yro-gate-tries');
+      say('Opening…');
+      await proceed(key, manifest, shared, anchor);
+    } catch {
+      button.disabled = false;
+      say('Something went wrong opening the portfolio. Reload the page and try again.', true);
+    }
+  }
+  form.addEventListener('submit', (event) => { event.preventDefault(); unlock(input.value, ''); });
+  input.addEventListener('input', () => { form.classList.remove('bad'); if (status.classList.contains('error')) say(''); });
+
+  (async () => {
+    // A link may carry the code after "#". That part of an address is never sent to the server.
+    // Any other "#..." is a section of the page and is kept.
+    const fragment = decodeURIComponent(location.hash.slice(1));
+    const carried = /^YRO[-\s]/i.test(fragment) ? fragment : '';
+    const anchor = carried ? '' : fragment;
+    if (carried) history.replaceState(null, '', location.pathname + location.search);
+    const session = await recall();
+    if (session) {
+      const manifest = await fileList(session.key);
+      if (manifest) {
+        say('Opening…');
+        try { await proceed(session.key, manifest, session.shared, anchor); return; }
+        catch { say('Something went wrong opening the portfolio. Reload the page and try again.', true); return; }
+      }
+      await forget();   // expired, or the code has been changed
+    }
+    if (carried) { input.value = carried; unlock(carried, anchor); }
+    else input.focus();
+  })();
+})();
+</script>
+</body>
+</html>
