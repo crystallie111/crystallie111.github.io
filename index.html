@@ -58,7 +58,7 @@
 <script>
 (() => {
   'use strict';
-  const SALT = 'BmbjqQrWix6Spj6btGlmnA==', ITERATIONS = 600000, SESSION_MS = 24 * 3600000;
+  const SALT = '597NDzAdl8g45QfqDVx7kg==', ITERATIONS = 600000, SESSION_MS = 24 * 3600000;
   const ROOT = '/', DB = 'yro-gate', STORE = 'session';
   const form = document.getElementById('gate'), input = document.getElementById('code'), button = document.getElementById('go'), status = document.getElementById('status');
   const say = (text, error) => { status.textContent = text; status.classList.toggle('error', Boolean(error)); };
